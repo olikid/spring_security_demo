@@ -1,5 +1,5 @@
 DATABASE_URL=jdbc:postgresql://localhost:5432/mysecurity
 JWT_SECRETE=<random_string_of_your_key>
-JWT_EXPIRATION_M_SECONDS=<jwt_expiration_in_milliseconds>
+JWT_EXPIRATION_M_SECONDS=50000
 DB_USER_NAME=postgres
 DB_PASSWORD=123

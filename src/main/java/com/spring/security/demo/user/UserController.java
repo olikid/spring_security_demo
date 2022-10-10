@@ -48,6 +48,8 @@ public class UserController {
     }
 
     @PutMapping("update-role/{userName}/{role}")
+    //either admin or executive
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_EXECUTIVE')")
     public ResponseEntity<ApiResponse> updateUserRole(@PathVariable("userName") String userName,
                                                       @PathVariable("role") String role,
                                                       Authentication currentUser){
@@ -55,6 +57,8 @@ public class UserController {
     }
 
     @PutMapping("disable-account/{userName}")
+    //only people with admin roles can 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<ApiResponse> disableAccount(@PathVariable("userName") String userName){
         return userService.disableAccount(userName);
     }

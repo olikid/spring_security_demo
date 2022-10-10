@@ -57,7 +57,7 @@ public class UserController {
     }
 
     @PutMapping("disable-account/{userName}")
-    //only people with admin roles can 
+    //only people with admin roles can
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<ApiResponse> disableAccount(@PathVariable("userName") String userName){
         return userService.disableAccount(userName);
